@@ -94,6 +94,18 @@ public class Main {
             System.out.println(b);
         }
         sc.close();
+        
+        Enter the number of elements in book array
+// 1
+// book number1
+// enter book details
+// 1
+// java script
+// 2
+// Book{bookId=1, bookName='java script', bookPrice=2}
+// Book{bookId=1, bookName='java script', bookPrice=2}
+
+// Process finished with exit code 0
 
 
     }
