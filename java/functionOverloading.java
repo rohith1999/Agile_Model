@@ -48,6 +48,8 @@ public class Average {
 
 }
 
+//tax
+
 package com.thbs.util;
 
 public class Tax {
