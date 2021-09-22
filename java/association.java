@@ -64,5 +64,10 @@ public class Main {
         Person person=new Person(1,"Rohith S",address);
 
         System.out.println(person);
+	    
+//     Person{personId=1, personName='Rohith S', address=Address{doorNo=17, street='RT nagar', city='Bamgalore', state='Karnataka', pinCode='560032'}}
+
+// Process finished with exit code 0
+
     }
 }
