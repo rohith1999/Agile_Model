@@ -1,0 +1,828 @@
+
+1.Java Program to find the grade of a student using switch case. Here we will write a Java program find out students grades using switch case statement. 
+The below table shows the grading system.
+Score in subject
+Grade
+>=90
+A
+80-89
+B
+70-79
+C
+60-69
+D
+50-59
+E
+<50
+F
+
+
+code:
+
+package com.thbs;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int count, i;
+        float totalMarks = 0, percentage, average;
+        Scanner scanner= new Scanner(System.in);
+
+        System.out.println("Enter Number of Subject");
+        count = scanner.nextInt();
+
+        System.out.println("Enter Marks of " + count + " Subject");
+        for (i = 0; i < count; i++) {
+            totalMarks += scanner.nextInt();
+        }
+        System.out.println("Total MArks : " + totalMarks);
+
+        percentage = (totalMarks / (count * 100)) * 100;
+
+        switch ((int) percentage / 10) {
+            case 9:
+                System.out.println("Grade : A+");
+                break;
+            case 8:
+            case 7:
+                System.out.println("Grade : A");
+                break;
+            case 6:
+                System.out.println("Grade : B");
+                break;
+            case 5:
+                System.out.println("Grade : C");
+                break;
+            default:
+                System.out.println("Grade : D");
+                break;
+        }
+    }
+}
+
+
+output :
+Enter Number of Subject
+5
+Enter Marks of 5 Subject
+45 65 76 80 90
+Total MArks : 356.0
+Grade : A
+Process finished with exit code 0
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.package com.thbs;
+
+public class Main {
+
+    public static void main(String[] args) {
+ //pascal triangle
+        int n=6;
+
+        for (int i = 0; i <n ; i++) {
+            for (int j = n; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int k = 0; k <= i; k++) {
+                System.out.print(pascal_calc(i,k)+" ");
+            }
+            System.out.println();
+        }
+    }
+    private static int pascal_calc(int n,int k){
+        int r=1;
+        if (k>n-k)
+            k=n-k;
+        for (int i=0;i<k;i++){
+            r=r*(n-i);
+            r=r/(i+1);
+        }
+        return r;
+    }
+}
+
+OUTPUT:
+      1 
+     1 1 
+    1 2 1 
+   1 3 3 1 
+  1 4 6 4 1 
+ 1 5 10 10 5 1 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.A number is said to be a magic number if the sum of its digits is calculated till a single digit
+recursively by adding the sum of the digits after every addition. If the single-digit comes out to be 1, 
+then the number is a magic number. Example of magic numbers are:- 10, 19, 28, 55, 1234 e.t.c.
+
+code:
+
+package com.thbs;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+int n, r = 1, num, sum = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number");
+        n = sc.nextInt();
+        num = n;
+        while (num > 9)
+        {
+            while (num > 0)
+            {
+                r = num % 10;
+                sum = sum + r;
+                num = num / 10;
+            }
+            num = sum;
+            sum = 0;
+        }
+        if (num == 1)
+        {
+            System.out.println("Magic Number");
+        }
+        else
+        {
+            System.out.println("Not Magic Number");
+        }
+    }
+}
+        output
+   Enter number
+10
+Magic Number
+
+Process finished with exit code 0
+
+Enter number
+0
+Not Magic Number
+
+Process finished with exit code 0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.The highest common factor (HCF) of two or more numbers is the greatest number which divides each of them exactly. 
+Greatest Common Measure(GCM) and Greatest Common Divisor(GCD) are the other terms used to refer to HCF.
+
+code:
+
+package com.thbs;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+int a, b,x,y,t,gcd ,lcm;
+                Scanner sc= new Scanner(System.in);
+                System.out.println("enter the integers\n");
+                x= sc.nextInt();
+                y= sc.nextInt();
+                a = x;
+                b= y;
+                while(b!=0)
+                {
+                    t=b;
+                    b=a%b;
+                    a =t;
+
+                }
+                gcd=a;
+                lcm = (x*y)/gcd;
+                System.out.println("gcd of "+x+" and "+y+ "= "+gcd);
+                System.out.println("lcm of "+x+" and "+y+ "= "+lcm);
+
+            }
+        }
+
+            output
+
+ enter the integers
+
+10
+15
+gcd of 10 and 15= 5
+lcm of 10 and 15= 30
+
+Process finished with exit code 0
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5>
+package com.torryharris.mainpack;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number to check for palindrome:");
+        int n= sc.nextInt();
+        int revn=0,rem=0,Originnum=n;
+        while(n!=0)
+        {
+            rem=n%10;
+            revn=revn*10 +rem;
+            n/=10;
+        }
+        n=Originnum;
+        if(Originnum==revn)
+            System.out.println("the entered number "+n+" is Palindrome number");
+        else
+            System.out.println("the entred number "+n+" is not palindrome number");
+    }
+}
+
+output:
+enter the number to check for palindrome:
+353
+the entered number 353 is Palindrome number
+
+
+
+6>
+
+package com.torryharris.mainpack;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter te number:");
+        int n= sc.nextInt();
+        int rem=0,sum=0,Originnum=n;
+        while(n!=0)
+        {
+             rem=n%10;
+             sum+=fact(rem);
+             n/=10;
+        }
+        n=Originnum;
+        if(Originnum==sum)
+            System.out.println("the entered number "+n+" is a Krishnamurthy number");
+        else
+            System.out.println("he entered number "+n+" is not a Krishnamurthy number");
+    }
+    public static int fact(int n)
+    {
+        int fact=1;
+        for(int i=n;i>=1;i--)
+        {
+            fact*=i;
+        }
+        return fact;
+    }
+}
+output:
+enter te number:
+145
+the entered number 145 is a Krishnamurthy number
+
+
+
+7>
+
+package com.torryharris.mainpack;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("enter the number:");
+        int n= sc.nextInt();
+        int sum=0,rem=0,originnum=n;
+        while(n!=0)
+        {
+            rem=n%10;
+            if(rem%2==0)
+            {
+                sum+=rem;
+            }
+            n/=10;
+        }
+        n=originnum;
+        System.out.println("th sum of even degits in "+n+" is= "+sum);
+    }
+output:
+enter the number:
+1467
+th sum of even degits in 1467 is= 10
+
+
+
+8>
+
+package com.torryharris.mainpack;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number:");
+        int n= sc.nextInt();
+        int count=0,rem=0,a=n,sum=0;
+        while(n!=0)
+        {
+            count++;
+            n/=10;
+        }
+        n=a;
+        while(n!=0)
+        {
+            rem=n%10;
+            sum+=Math.pow(rem,count);
+            count--;
+            n/=10;
+        }
+        n=a;
+        if(sum==n)
+            System.out.println("the entered number "+n+" is disarium number");
+        else
+            System.out.println("the entered number "+n+" is disarium number");
+    }
+}
+output:
+enter the number:
+135
+the entered number 135 is disarium number
+
+enter the number:
+518
+the entered number 518 is disarium number
+
+
+-----------------------------------------------------------------------------------------
+
+
+
+9. fibonacci series
+
+package com.torryharris;
+import java.util.Scanner;
+
+public class fibonacci{
+    public static void main(String[] args) {
+        int first = 0;
+        int second = 1;
+        int max;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter max limit for the series: ");
+        max = sc.nextInt();
+
+        for( int i =1; i <= max; i++ ){
+            System.out.println(first+ "");
+            int sum = first + second;
+            first = second;
+            second = sum;
+
+        }
+
+    }
+}
+
+
+
+********OUTPUT*********
+
+enter max limit for the series: 
+5
+0
+1
+1
+2
+3
+
+Process finished with exit code 0
+10. program to convert from temperature celsius to farenheit.
+
+package com.torryharris;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int celsius;
+	    Scanner sc = new Scanner(System.in);
+        System.out.println("enter the temperature in degree celsius: ");
+        celsius = sc.nextInt();
+        System.out.println(" Temperature in Farenheit: ");
+        int farenheit = (celsius*9/5+32);
+        System.out.println(farenheit);
+
+    }
+}
+
+*********OUTPUT*********
+
+enter the temperature in degree celsius: 
+100
+ Temperature in Farenheit: 
+212
+
+Process finished with exit code 0
+
+
+
+
+11. program to find the largest element in the array.
+
+
+package com.torryharris;
+import java.util.Scanner;
+
+public class largest{
+    public static void main(String[] args) {
+        int [] arr = {10,12,9,6,31,2};
+        int largest = arr[0];
+        for ( int i = 0; i <arr.length;i++){
+            if (arr[i] > largest){
+                largest = arr[i];
+            }
+        }
+        System.out.println("largest element in the array: "+largest);
+    }
+}
+
+
+*********OUTPUT**********
+
+largest element in the array: 31
+
+Process finished with exit code 0
+
+
+
+12.
+package com.thbs;
+
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// merge sort
+        int[] a={4,2,6,8,10};
+        Arrays.sort(a);
+        int[] b={3,1,5,7,9,10};
+        Arrays.sort(b);
+        int sum=a.length+b.length;
+        int[] merge=new int[sum];
+        System.arraycopy(a,0,merge,0,a.length);
+        System.arraycopy(b,0,merge,a.length,b.length);
+        Arrays.sort(merge);
+
+        for (int i=0;i<merge.length;i++){
+            System.out.print(merge[i]+" ");
+        }
+    }
+}
+OUTPUT:   1 2 3 4 5 6 7 8 9 10 10
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+13> Repeated elements:
+
+package com.torryharris;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of elements you want to insert to the array: ");
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        int[] rep=new int[n];
+
+        for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+        Arrays.sort(arr);
+        int k=0;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]==arr[j]){
+                    rep[k]=arr[j];
+                    i=j;
+                    k++;
+                    break;
+                }
+            }
+
+        }
+        int cnt=0;
+        System.out.println("Repeated elements are: ");
+        for(int i:rep) {
+            if(i!=0) {
+                System.out.print(i+" ");
+                cnt++;
+            }
+        }
+        System.out.println("\nTotal repeated elements: "+cnt);
+
+
+
+    }
+}
+
+********OUTPUT*********
+Enter number of elements you want to insert to the array: 
+7
+50
+20
+10
+40
+20
+50
+20
+Repeated elements are: 
+20 50 
+Total repeated elements: 2
+
+
+14> Removing of duplicate elements:
+
+package com.torryharris;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of elements you want to insert to the array: ");
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        int[] dup=new int[n];
+
+        for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+
+        dup[0]=arr[0];
+        int k=1,flag=0;
+        for(int i=0;i<n-1;i++){
+                if(arr[i]!=arr[i+1]){
+                    for(int j=0;j<n;j++){
+                        if(arr[i+1]==dup[j])
+                            flag=1;
+                    }
+                    if(flag==0) {
+                        dup[k] = arr[i+1];
+                        k++;
+                    }
+                }
+                flag=0;
+        }
+        System.out.println("After removing duplicate elements we get: ");
+        for(int i:dup)
+            if(i!=0)
+                System.out.print(i+" ");
+
+    }
+}
+
+********OUTPUT*********
+For sorted elements:
+Enter number of elements you want to insert to the array: 
+7
+10 10 20 30 40 40 50
+After removing duplicate elements we get: 
+10 20 30 40 50 
+
+For unsorted elements:
+Enter number of elements you want to insert to the array: 
+8
+30 50 20 50 10 20 30 10 
+After removing duplicate elements we get: 
+30 50 20 10 
+
+
+15> Insert element at a specific position:
+
+package com.torryharris;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of elements you want to insert to the array: ");
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        int[] newarr=new int[n+1];
+
+        for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+
+        System.out.println("Enter the element to be inserted: ");
+        int ele= sc.nextInt();
+        System.out.println("Enter the position: ");
+        int pos= sc.nextInt();
+
+        int k=0;
+        for(int i=0;i<=n;i++){
+            if(i==pos)
+                newarr[i]=ele;
+            else {
+                newarr[i] = arr[k];
+                k++;
+            }
+        }
+        System.out.println("After inserted new element to the array we get: ");
+        for(int i:newarr)
+            System.out.print(i+" ");
+        
+    }
+}
+
+********OUTPUT*********
+Enter number of elements you want to insert to the array: 
+5
+10 20 30 40 60
+Enter the element to be inserted: 
+50
+Enter the position: 
+4
+After inserted new element to the array we get: 
+10 20 30 40 50 60 
+
+
+16> Check given number is armstrong are not:
+
+package com.torryharris;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number between 1 to 1000: ");
+        int n=sc.nextInt();
+        while(n<=1 || n>=1000){
+            System.out.println("Please enter the number only between 1 to 1000 range: ");
+            n=sc.nextInt();
+        }
+        int len=String.valueOf(n).length();
+        int armstr=0;
+        int n1=n;
+        while(n1!=0){
+            armstr+=(int)Math.pow((n1%10),len);
+            n1/=10;
+        }
+        if(armstr==n)
+            System.out.println("Given number is Armstrong");
+        else
+            System.out.println("Given number is not an Armstrong");
+
+    }
+}
+
+********OUTPUT*********
+Enter a number between 1 to 1000: 
+1
+Please enter the number only between 1 to 1000 range: 
+153
+Given number is Armstrong
+
+Enter a number between 1 to 1000: 
+190
+Given number is not an Armstrong
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+package com.thbs;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        //17 automorphic number
+//        Scanner sc=new Scanner(System.in);
+//        System.out.println("enter a number");
+//        int number = sc.nextInt();
+//        sc.close();
+//        int squareNum = number*number;
+//        System.out.println(squareNum);
+//        if (String.valueOf(squareNum).contains(String.valueOf(number))){
+//            System.out.println("Automorphic number");
+//
+//
+//        }else{
+//            System.out.println("Not an Automorphic number");
+//
+//        }
+
+//        enter a number
+//        5
+//        25
+//        Automorphic number
+
+//        enter a number
+//        7
+//        49
+//        Not an Automorphic number
+
+        //18 BMI calculator
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter your weight");
+//        double weight = sc.nextDouble();
+//        System.out.println("enter your height");
+//        double height = sc.nextDouble();
+//
+//        double bmi = weight / (height * height);
+//        System.out.println("BMI is " + bmi);
+//        if (bmi < 18.5) {
+//            System.out.println("Thinness");
+//        } else if (bmi >= 18.5 && bmi < 25) {
+//            System.out.println("Normal");
+//        } else if (bmi >= 25 && bmi < 30) {
+//            System.out.println("OverWeight");
+//        } else if (bmi > 30) {
+//            System.out.println("Obese");
+//        }
+
+//        Enter your weight
+//        75
+//        enter your height
+//        1.5
+//        BMI is 33.333333333333336
+//        Obese
+
+        //19 perfect number
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter a number");
+//        int num = sc.nextInt();
+//        //find factorial of the given number
+//        int sum = 0;
+//        for (int i=1;i<=num/2;i++){
+//            if (num%i==0){
+//                sum=sum+i;
+//            }
+//        }
+//        if (sum==num){
+//            System.out.println("Perfect number: "+ num);
+//        }
+//        else {
+//            System.out.println("Not a perfect number: "+num);
+//        }
+
+//        Enter a number
+//        28
+//        Perfect number: 28
+
+        //20. 2nd largest number
+        System.out.println("enter the number of elements");
+        Scanner sc=new Scanner(System.in);
+        int len = sc.nextInt();
+        int[] arr=new int[len];
+        System.out.println("enter the values");
+        for (int i=0;i<len;i++){
+            arr[i]= sc.nextInt();
+        }
+        Arrays.sort(arr);
+        System.out.println("The 2nd largest element is: "+arr[len-2]);
+        sc.close();
+//        enter the number of elements
+//        5
+//        enter the values
+//        200 500 5 10 6
+//        The 2nd largest element is: 200
+    }
+}
+
+	
+
+
+
+
+
