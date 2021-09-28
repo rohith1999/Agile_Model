@@ -1,0 +1,82 @@
+package com.company.tpack;
+
+import java.util.List;
+
+public class Test {
+
+    //number is the base class of all numeric wrapper(byte,short integer,double,long etc.x  ) classes
+    //upper bound to be number
+    public static Number sumOfList(List<? extends Number> numbers){
+        double sum=0.0;
+        for (Number number: numbers){
+            sum+=number.doubleValue();
+        }
+        return sum;
+    }
+
+    //lower bound to be double (so number and object can be considered)
+    public static Number sumofList(List<? super Double> numbers){
+        double sum=0.0;
+        for (Object number: numbers){
+            sum+=((Number)number).doubleValue();
+        }
+        return sum;
+    }
+
+    //unbouned references
+    public static  Number sumOfList2(List<?>list){
+        double sum=0.0;
+            for (Object number: list){
+            sum+=((Number)number).doubleValue();
+        }
+        return sum;
+    }
+
+}
+
+
+//main
+
+package com.company;
+
+import com.company.tpack.Test;
+
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+//        ArrayList<Integer> arrayList=new ArrayList<>();
+//        arrayList.add(10);
+//        arrayList.add(20);
+//        arrayList.add(100);
+
+//        ArrayList<Long> arrayList=new ArrayList<>();
+//        arrayList.add(10L);
+//        arrayList.add(20L);
+//        arrayList.add(100L);
+
+        ArrayList<Double> arrayList=new ArrayList<>();
+        arrayList.add(10.0);
+        arrayList.add(20.0);
+        arrayList.add(100.0);
+
+        System.out.println(Test.sumOfList(arrayList));
+
+
+
+        ArrayList<Double> arrayList1=new ArrayList<>();
+        arrayList.add(10.0);
+        arrayList.add(20.0);
+        arrayList.add(100.0);
+
+        System.out.println(Test.sumofList(arrayList1));
+
+        System.out.println("Unbounded");
+        System.out.println(Test.sumOfList2(arrayList1));
+
+
+    }
+}
