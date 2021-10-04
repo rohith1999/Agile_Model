@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+
+<!--<form action="/src/main/webapp/index1.html" method="post" >-->
+
+<!--    <label>Email</label>-->
+<!--    <input type="email" placeholder="email" id="email" >-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label>Password</label>-->
+<!--    <input type="password" placeholder="password" id="password">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <input type="submit" value="submit">-->
+<!--</form>-->
+
+<form action="/src/main/webapp/index1.html" method="get">
+
+    <label>Email</label>
+    <input type="email" placeholder="email" name="email" id="email">
+    <br>
+    <br>
+    <label>Password</label>
+    <input type="password" placeholder="password" name="password" id="password">
+    <br>
+    <br>
+    <!--test area-->
+    <textarea cols="10" rows="10" id="content">
+
+    </textarea>
+
+<!--    select tag-->
+    <select id="states" name="states">
+        <option value="karnataka">karnataka</option>
+        <option value="tamil nadu">tamil nadu</option>
+        <option value="kerala">kerala</option>
+        <option value="MP">MP</option>
+        <option value="UP">UP</option>
+    </select>
+    <br>
+    <br>
+
+    <input type="radio" id="fruit" name="fruit" value="apple">
+    <label for="fruit">Apple</label>
+    <input type="radio" id="fruit1" name="fruit1" value="grapes">
+    <label for="fruit1">Grapes</label>
+
+
+    <br>
+    <br>
+    <input type="checkbox" id="vaccination" name="vaccination" value="0">
+    <label for="vaccination">Not vaccinated</label>
+    <input type="checkbox" id="vaccination1" name="vaccination" value="1">
+    <label for="vaccination1">Vaccinated</label>
+    <input type="checkbox" id="vaccination2" name="vaccination" value="2">
+    <label for="vaccination2">Vaccinated fully</label>
+
+
+    <br>
+    <br>
+    <label for doj >Join date</label>
+    <input type="date" id="doj" name="doj">
+
+
+    <br>
+    <br>
+    <label for qty>
+        Quantity( 1-5)
+    </label>
+    <input type="number" id="qty" name="qty" min="1" max="5">
+
+
+    <br>
+    <br>
+    <label for myfile>
+        Select file from your drive
+    </label>
+    <input type="file" id="myfile" name="myfile">
+
+    <br>
+    <br>
+    <label for myfile>
+        Select file from your drive
+    </label>
+    <input type="file" id="myfile1" name="myfile" multiple>
+
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<!--default method is get-->
+
+
+</body>
+</html>
