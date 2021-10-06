@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+<p id="demo">Demo by HTML</p>
+<br>
+<script type="text/javascript">
+
+    document.getElementById("demo").innerHTML = "demo by JS";
+    //write data
+    document.write(5+6);
+    document.write("<br><br>"+
+"<input type='text' placeholder='enter name' required>"
+    );
+
+    let x,y,z;
+    x=10;
+    y=15;
+    document.write("<br>");
+    document.write(x+y);
+
+
+    var str1 = "Welcome us";
+    var str2 = "welcome js";
+    document.write("<br>");
+    document.write(str1+" "+str2);
+
+    //alert
+   // alert(10+20);
+   // alert("hello user");
+
+    //var a = prompt("yes or no","yes");
+
+
+   // var a = prompt("Enter a number");
+  //  var sum =10;
+  //  sum+= (Number) (a);
+   // alert(sum);
+
+
+
+<!--var var1= prompt("enter 1st num");-->
+<!--var var2= prompt("enter 2nd num");-->
+<!--var sum = parseInt(var1)+parseInt(var2);-->
+<!--alert(sum);-->
+
+<!--var res = 0;-->
+<!--for(let i = 1; i<=3 ; i++){-->
+<!--res+=(Number)(prompt("enter a number","0"));-->
+<!--}-->
+<!--alert(res);-->
+
+document.write("<br>");
+var num1 = 150;
+var num2 = 120;
+var num3  = 200;
+<!--if(num1>num2)-->
+<!--    document.write(num1+" is the largest");-->
+<!--else-->
+<!--    document.write(num2+" is the largest");-->
+
+<!--var lar = ((num1>num2)&&(num1>num3))?num1:(num2>num3)?num2:num3;-->
+<!--alert(lar);-->
+
+<!--var city = "Bangalore";-->
+<!--switch(city){-->
+<!-- case "Bangalore": document.write("cool city");-->
+<!-- break;-->
+<!--case "Chennai":document.write("hot city");-->
+<!-- break;-->
+<!--}-->
+
+//data types
+<!--numbers-->
+<!--String-->
+<!--objects-->
+<!--boolean-->
+<!--function-->
+
+<!--let a=10;-->
+<!--a="Jason";-->
+<!--document.write(x);-->
+
+<!--console.log("jack");-->
+
+
+<!--let x1=100;-->
+<!--let x2=100;-->
+<!--document.write(x1===x2);-->
+
+<!--const city = ["Bangalore","Chennai","Delhi"];-->
+
+<!--document.write(city[1]);-->
+
+const car =  [{type:"nano",model:"1",color:"red wine"},
+{type:"swift",model:"2",color:"blue"},
+{type:"zen",model:"3",color:"grey"}];
+
+for(let i=0;i<car.length;i++){
+document.write(car[i].type+" "+car[i].model+" "
++car[i].color+"<br>");
+}
+
+
+
+
+
+</script>
+</body>
+</html>
