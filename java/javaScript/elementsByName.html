@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" name="array[]" value="">
+<input type="number" name="array[]" value="">
+<input type="number" name="array[]" value="">
+<input type="number" name="array[]" value="">
+<input type="number" name="array[]" value="">
+<input type="button" id="button1" onclick="printSum()" value="sumbit">
+<p id="ans"></p>
+<p id="display"></p>
+
+<script type="text/javascript">
+    function printSum(){
+    var input= document.getElementsByName("array[]");
+    var sum = 0;
+    var k="ArrayElements: ";
+    for(let i=0; i<input.length; i++){
+    k = k+"["+i+"] "+parseInt(input[i].value)+"<br>";
+    sum+=parseInt(input[i].value);
+    }
+
+    document.getElementById("ans").innerHTML = sum;
+    document.getElementById("display").innerHTML = k;
+
+}
+</script>
+</body>
+</html>
