@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback</title>
+</head>
+<body>
+<p id="res"></p>
+<p id="res1"></p>
+
+<script type="text/javascript">
+
+    function display(data){
+    document.getElementById("res").innerHTML=data;
+    }
+
+      function display1(data){
+    document.getElementById("res1").innerHTML=data;
+    }
+
+    function findMax(num1,num2,myCallback){
+
+       let max = 0;
+       if(num1>num2)
+        max = num1;
+
+        else
+        max = num2;
+        myCallback(max);
+    }
+
+     function findSum(num1,num2,myCallback){
+
+       var sum=num1+num2;
+        myCallback(sum);
+    }
+
+    findMax(15,5,display);
+    findSum(15,5,display1);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
