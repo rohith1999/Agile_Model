@@ -1,0 +1,128 @@
+package org.example;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Getter
+@Setter
+@Component("customer")
+public class Customer {
+private int id;
+private String name;
+private Address address;
+
+//constructor injection
+
+
+    public Customer() {
+
+
+    }
+
+    @Autowired
+    public  Customer(Address address) {
+        this.address = address;
+    }
+
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                '}';
+    }
+}
+
+
+package org.example;
+
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+@Component("address")
+@Getter
+@Setter
+public class Address {
+    private String doorNo;
+    private  String streetNo;
+    private  String city;
+    private  String state;
+    private String pinCode;
+
+    public Address() {
+
+    }
+
+    public Address(String doorNo, String streetNo, String city, String state) {
+        this.doorNo = doorNo;
+        this.streetNo = streetNo;
+        this.city = city;
+        this.state = state;
+    }
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "doorNo='" + doorNo + '\'' +
+                ", streetNo='" + streetNo + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", pinCode='" + pinCode + '\'' +
+                '}';
+    }
+
+
+
+
+}
+
+package org.example;
+
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class App
+{
+    public static void main( String[] args )
+    {
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+        context.scan("org.example");
+        context.refresh();
+
+        Customer customer= (Customer) context.getBean("customer");
+        customer.setId(100);
+        customer.setName("rohith");
+
+        Address address= customer.getAddress();
+        address.setCity("Bangalore");
+        address.setPinCode("560032");
+        address.setStreetNo("100");
+        address.setState("Karnataka");
+
+        System.out.println(customer);
+
+        context.close();
+    }
+}
