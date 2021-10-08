@@ -1,0 +1,148 @@
+package org.example;
+
+public interface Client {
+    void doSomething();
+}
+
+
+package org.example;
+
+public interface Service {
+    public String getInfo();
+}
+
+
+
+
+//clients
+package org.example;
+
+
+
+public class ClientA implements Client{
+
+    Service service;
+
+
+    public ClientA(Service service1) {
+        this.service = service1;
+    }
+
+    @Override
+    public void doSomething() {
+
+        System.out.println(service.getInfo());
+
+    }
+}
+
+
+package org.example;
+
+
+
+public class ClientB implements Client{
+
+    Service service;
+
+
+    public ClientB(Service service2) {
+        this.service = service2;
+    }
+
+
+    @Override
+    public void doSomething() {
+        System.out.println(service.getInfo());
+    }
+}
+
+
+
+//services
+package org.example;
+
+
+public class ServiceA implements Service {
+    @Override
+    public String getInfo() {
+        return "Service A info";
+    }
+}
+
+package org.example;
+
+
+public class ServiceB implements Service {
+    @Override
+    public String getInfo() {
+        return "Service B info";
+    }
+
+}
+
+
+//application config
+
+package org.example;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ApplicationConfig {
+
+    @Bean("service1")
+    public Service getService(){
+
+        return new ServiceA();
+    }
+
+    @Bean("client1")
+    public Client getClient(Service service1){
+
+        return new ClientA(service1);
+    }
+
+    @Bean("service2")
+    public Service getService1(){
+
+        return new ServiceB();
+    }
+
+    @Bean("client2")
+    public Client getClient1(Service service2){
+
+        return new ClientA(service2);
+    }
+
+
+
+
+
+}
+
+
+//main
+
+package org.example;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+
+        context.register(ApplicationConfig.class);
+        context.refresh();
+
+        Client c1= (Client) context.getBean("client1");
+        c1.doSomething();
+
+        Client c2= (Client) context.getBean("client2");
+        c2.doSomething();
+    }
+}
