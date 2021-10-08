@@ -1,0 +1,109 @@
+package org.example;
+
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
+@Component("service1")
+public class ServiceA implements Service{
+    @Override
+    public String getInfo() {
+        return "Service A info";
+    }
+}
+
+package org.example;
+
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.annotation.Resources;
+
+@Component("service2")
+//@Resources
+public class ServiceB implements Service{
+    @Override
+    public String getInfo() {
+        return "Service B info";
+    }
+
+}
+
+
+package org.example;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("client1")
+public class ClientA implements Client{
+
+    Service service;
+
+    @Autowired
+    public ClientA(Service service1) {
+        this.service = service1;
+    }
+
+    @Override
+    public void doSomething() {
+
+        System.out.println(service.getInfo());
+
+    }
+}
+
+
+package org.example;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("client2")
+public class ClientB implements Client{
+
+    Service service;
+
+    @Autowired
+    public ClientB(Service service2) {
+        this.service = service2;
+    }
+
+
+    @Override
+    public void doSomething() {
+        System.out.println(service.getInfo());
+    }
+}
+
+
+package org.example;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContextExtensionsKt;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+
+        context.scan("org.example");
+        context.refresh();
+
+        Client client1= (Client) context.getBean("client1");
+        Client client2= (Client) context.getBean("client2");
+
+        client1.doSomething();
+        client2.doSomething();
+
+        context.close();
+
+
+
+    }
+}
+
