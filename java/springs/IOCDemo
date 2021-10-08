@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!--    A pojo class is called as a bean-->
+<bean id="address" class="org.example.Address"/>
+    <bean id="account" class="org.example.Account"/>
+<bean id="customer" class="org.example.Customer">
+    <property name="address" ref="address"/>
+<!--    <constructor-arg ref="address" />-->
+    <property name="account" ref="account"/>
+
+</bean>
+
+</beans>
+
+//java
+
+package org.example;
+
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+public class Address {
+    private String doorNo;
+    private  String streetNo;
+    private  String city;
+    private  String state;
+    private String pinCode;
+
+}
+
+
+package org.example;
+
+import lombok.*;
+
+@Getter
+@Setter
+
+@ToString
+public class Customer {
+private int id;
+private String name;
+private Address address;
+private Account account;
+
+//public Customer(Address address){
+//    this.address=address;
+//}
+
+}
+
+
+
+//main
+
+package org.example;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.beans.Beans;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        ApplicationContext context= new ClassPathXmlApplicationContext(
+                "file:src/main/java/beans.xml");
+
+        Customer customer= (Customer) context.getBean("customer");
+        customer.setId(100);
+        customer.setName("Rohith");
+        Address address= customer.getAddress();
+        address.setDoorNo("17");
+        address.setStreetNo("2nd cross, sethappa layout");
+        address.setCity("Bangalore");
+        address.setState("Karnataka");
+        address.setPinCode("560032");
+
+        Account account= customer.getAccount();
+        account.setAccName("account");
+        account.setAccNumber("123456890");
+
+
+        System.out.println(customer);
+
+
+        ((ClassPathXmlApplicationContext)context).close();
+    }
+
+}
+
