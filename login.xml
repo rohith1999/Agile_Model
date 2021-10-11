@@ -1,0 +1,6 @@
+<form action="/SampleSpringMVC/GreetPage" method = "post">
+ <B>Enter UserName </B><input type = "text" name = "name" /><br>
+ <B>Enter Password </B><input type = "password" name = "pass" /><br>
+ 
+<input type = "submit" value = "submit"/>
+</form>
