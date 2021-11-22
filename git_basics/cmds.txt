@@ -1,0 +1,25 @@
+git init
+nano f1.txt
+git add . or git add f.txt
+git commit -m "message"
+git remote add origin "url"
+git remote -v
+git push origin master
+
+//clone and pull
+git pull url
+git clone url
+
+
+//creating branch
+git branch bname
+git checkout bname
+nano f1.txt
+git add . or git add f.txt
+git commit -m "message"
+git push -f origin bname
+
+
+//stash
+git stash
+git stash pop
